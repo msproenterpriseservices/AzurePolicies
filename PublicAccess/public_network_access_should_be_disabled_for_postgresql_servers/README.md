@@ -6,7 +6,7 @@ Public network access should be disabled for PostgreSQL servers
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

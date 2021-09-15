@@ -6,7 +6,7 @@ Public network access should be disabled for Container registries
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

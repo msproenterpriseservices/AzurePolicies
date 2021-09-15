@@ -6,7 +6,7 @@ Azure Event Grid topics should disable public network access
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -1,0 +1,32 @@
+name: manage-azure-policy-0e6d1cb7
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Private_endpoint_should_be_enabled_for_PostgreSQL_servers_0564d078-92f5-4f97-8398-b9f58a51f70b/**'
+#      - .github/workflows/manage-azure-policy-0e6d1cb7.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_0e6d1cb7}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Private_endpoint_should_be_enabled_for_PostgreSQL_servers_0564d078-92f5-4f97-8398-b9f58a51f70b/**

@@ -1,0 +1,32 @@
+name: manage-azure-policy-007c97b1
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/_Preview_Azure_Recovery_Services_vaults_should_use_private_link_for_backup_deeddb44-9f94-4903-9fa0-081d524406e3/**'
+#      - .github/workflows/manage-azure-policy-007c97b1.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_007c97b1}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/_Preview_Azure_Recovery_Services_vaults_should_use_private_link_for_backup_deeddb44-9f94-4903-9fa0-081d524406e3/**

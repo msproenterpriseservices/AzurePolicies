@@ -6,7 +6,7 @@ Automation accounts should disable public network access
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

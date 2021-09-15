@@ -6,7 +6,7 @@ Public network access should be disabled for Azure File Sync
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -6,7 +6,7 @@ Public network access should be disabled for Batch accounts
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -1,0 +1,32 @@
+name: manage-azure-policy-30b3ff55
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/App_Configuration_should_use_private_link_ca610c1d-041c-4332-9d88-7ed3094967c7/**'
+#      - .github/workflows/manage-azure-policy-30b3ff55.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_30b3ff55}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/App_Configuration_should_use_private_link_ca610c1d-041c-4332-9d88-7ed3094967c7/**

@@ -6,7 +6,7 @@ Log Analytics workspaces should block log ingestion and querying from public net
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -6,7 +6,7 @@ Public network access on Azure IoT Hub should be disabled
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

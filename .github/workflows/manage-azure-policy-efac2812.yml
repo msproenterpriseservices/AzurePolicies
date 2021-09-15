@@ -1,0 +1,32 @@
+name: manage-azure-policy-efac2812
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/IoT_Hub_device_provisioning_service_instances_should_use_private_link_df39c015-56a4-45de-b4a3-efe77bed320d/**'
+#      - .github/workflows/manage-azure-policy-efac2812.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_efac2812}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/IoT_Hub_device_provisioning_service_instances_should_use_private_link_df39c015-56a4-45de-b4a3-efe77bed320d/**

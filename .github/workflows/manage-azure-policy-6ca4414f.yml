@@ -1,0 +1,32 @@
+name: manage-azure-policy-6ca4414f
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/App_Configuration_should_disable_public_network_access_3d9f5e4c-9947-4579-9539-2a7695fbc187/**'
+#      - .github/workflows/manage-azure-policy-6ca4414f.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_6ca4414f}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/App_Configuration_should_disable_public_network_access_3d9f5e4c-9947-4579-9539-2a7695fbc187/**

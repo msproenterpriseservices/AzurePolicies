@@ -1,0 +1,32 @@
+name: manage-azure-policy-29895346
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/Public_network_access_on_Azure_SQL_Database_should_be_disabled_1b8ca024-1d5c-4dec-8995-b1a932b41780/**'
+#      - .github/workflows/manage-azure-policy-29895346.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_29895346}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/Public_network_access_on_Azure_SQL_Database_should_be_disabled_1b8ca024-1d5c-4dec-8995-b1a932b41780/**

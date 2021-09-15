@@ -6,7 +6,7 @@ IoT Hub device provisioning service instances should disable public network acce
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

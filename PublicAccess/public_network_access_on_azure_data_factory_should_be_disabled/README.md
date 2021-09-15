@@ -6,7 +6,7 @@ Public network access on Azure Data Factory should be disabled
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

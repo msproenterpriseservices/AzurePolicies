@@ -6,7 +6,7 @@ Application Insights components should block log ingestion and querying from pub
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -1,0 +1,32 @@
+name: manage-azure-policy-8388c760
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/_Preview_Azure_Key_Vaults_should_use_private_link_a6abeaec-4d90-4a02-805f-6b26c4d3fbe9/**'
+#      - .github/workflows/manage-azure-policy-8388c760.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_8388c760}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/_Preview_Azure_Key_Vaults_should_use_private_link_a6abeaec-4d90-4a02-805f-6b26c4d3fbe9/**

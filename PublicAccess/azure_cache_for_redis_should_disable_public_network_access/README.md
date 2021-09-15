@@ -6,7 +6,7 @@ Azure Cache for Redis should disable public network access
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

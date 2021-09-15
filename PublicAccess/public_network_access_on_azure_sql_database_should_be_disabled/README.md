@@ -6,7 +6,7 @@ Public network access on Azure SQL Database should be disabled
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -6,7 +6,7 @@
 
 ## Mode
 
-`All`
+`Indexed`
 
 ## Description
 

@@ -1,0 +1,32 @@
+name: manage-azure-policy-c61ac94e
+on:
+  workflow_dispatch:
+    inputs:
+      remarks:
+        description: 'Reason for triggering the workflow run'
+        required: false
+        default: 'Updating Azure Policies'
+
+
+## Uncomment the following if you wish to automatically trigger workflow run with every commit
+#
+#  push:
+#    paths:
+#      - 'policies/PostgreSQL_server_should_use_a_virtual_network_service_endpoint_3c14b034-bcb6-4905-94e7-5b8e98a47b65/**'
+#      - .github/workflows/manage-azure-policy-c61ac94e.yml
+jobs:
+  apply-azure-policy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS_c61ac94e}}
+        allow-no-subscriptions: true
+    - name: Create or Update Azure Policies
+      uses: azure/manage-azure-policy@v0
+      with:
+        paths: |
+          policies/PostgreSQL_server_should_use_a_virtual_network_service_endpoint_3c14b034-bcb6-4905-94e7-5b8e98a47b65/**

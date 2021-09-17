@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.Media/mediaservices"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.Media/mediaservices/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.Media/mediaservices/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

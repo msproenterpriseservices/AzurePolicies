@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.Insights/privateLinkScopes"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.Insights/privateLinkScopes/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.Insights/privateLinkScopes/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

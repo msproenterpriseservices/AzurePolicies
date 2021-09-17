@@ -1,0 +1,15 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.ServiceBus/namespaces}",
+                             "@{field=Microsoft.ServiceBus/namespaces/sku.tier; equals=Premium}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.ServiceBus/namespaces/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.ServiceBus/namespaces/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

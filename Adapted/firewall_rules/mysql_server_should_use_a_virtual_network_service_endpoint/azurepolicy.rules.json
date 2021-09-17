@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.DBforMySQL/servers"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.DBforMySQL/servers/virtualNetworkRules",
+                                 "existenceCondition":  "@{field=Microsoft.DBforMySQL/servers/virtualNetworkRules/virtualNetworkSubnetId; exists=true}"
+                             }
+             }
+}

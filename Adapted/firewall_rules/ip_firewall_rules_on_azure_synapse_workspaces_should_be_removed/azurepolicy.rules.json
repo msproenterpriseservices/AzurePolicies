@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Synapse/workspaces/firewallrules}",
+                             "@{field=name; exists=true}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

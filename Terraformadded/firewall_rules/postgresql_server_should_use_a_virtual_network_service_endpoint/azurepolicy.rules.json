@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.DBforPostgreSQL/servers"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.DBforPostgreSQL/servers/virtualNetworkRules",
+                                 "existenceCondition":  "@{field=Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/virtualNetworkSubnetId; exists=true}"
+                             }
+             }
+}

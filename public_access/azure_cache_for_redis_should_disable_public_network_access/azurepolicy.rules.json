@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Cache/Redis}",
+                             "@{field=Microsoft.Cache/Redis/publicNetworkAccess; notEquals=Disabled}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=[concat(\u0027tags[\u0027, parameters(\u0027tagName\u0027), \u0027]\u0027)]; notEquals=[resourceGroup().tags[parameters(\u0027tagName\u0027)]]}",
+                             "@{value=[resourceGroup().tags[parameters(\u0027tagName\u0027)]]; notEquals=}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "modify",
+                 "details":  {
+                                 "roleDefinitionIds":  "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+                                 "operations":  ""
+                             }
+             }
+}

@@ -1,0 +1,32 @@
+# Add a tag to resource groups
+
+## Display Name
+
+Add a tag to resource groups
+
+## Mode
+
+`All`
+
+## Description
+
+Adds the specified tag and value when any resource group missing this tag is created or updated. Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed.
+
+## Built-In Reference
+
+Modified from: [AddTag_ResourceGroup_Modify](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json)
+
+Terraform azpolicy_definition module usage
+-----
+
+```hcl
+module "add_a_tag_to_resource_groups" {
+  source = "..//modules/azpolicy_definition"
+  policy_name           = "add_a_tag_to_resource_groups"
+  display_name          = "Add a tag to resource groups"
+  policy_description    = "Adds the specified tag and value when any resource group missing this tag is created or updated. Existing resource groups can be remediated by triggering a remediation task. If the tag exists with a different value it will not be changed."
+  policy_category       = "Tags"
+  policy_mode           = "All"
+  management_group_name = azurerm_management_group.dev.name
+}
+```

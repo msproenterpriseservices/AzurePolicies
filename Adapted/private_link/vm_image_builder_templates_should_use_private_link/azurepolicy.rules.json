@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.VirtualMachineImages/imageTemplates}",
+                             "@{field=Microsoft.VirtualMachineImages/imageTemplates/vmProfile.vnetConfig; exists=false}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

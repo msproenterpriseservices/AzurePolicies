@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.StorageSync/storageSyncServices}",
+                             "@{field=Microsoft.StorageSync/storageSyncServices/incomingTrafficPolicy; notEquals=AllowVirtualNetworksOnly}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

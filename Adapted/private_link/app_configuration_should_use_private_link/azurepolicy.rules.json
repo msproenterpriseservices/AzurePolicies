@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.AppConfiguration/configurationStores"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.AppConfiguration/configurationStores/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.AppConfiguration/configurationStores/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

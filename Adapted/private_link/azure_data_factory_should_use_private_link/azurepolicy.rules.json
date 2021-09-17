@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.DataFactory/factories"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.DataFactory/factories/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.DataFactory/factories/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

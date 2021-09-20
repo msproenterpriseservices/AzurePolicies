@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Batch/batchAccounts}",
+                             "@{field=Microsoft.Batch/batchAccounts/publicNetworkAccess; notEquals=Disabled}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

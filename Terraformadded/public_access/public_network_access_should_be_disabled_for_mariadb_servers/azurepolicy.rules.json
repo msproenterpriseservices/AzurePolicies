@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.DBforMariaDB/servers}",
+                             "@{field=Microsoft.DBforMariaDB/servers/publicNetworkAccess; notEquals=Disabled}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

@@ -4,7 +4,10 @@
                             "field" : "type",
                             "equals" : "Microsoft.Resources/subscriptions/resourceGroups"
                             }
-                        
+                          {
+                            "field": "[concat('tags[', parameters('tagName'), ']')]",
+                            "notEquals": "[parameters('tagValue')]"
+                          }
                          ]
            },
     "then":  {

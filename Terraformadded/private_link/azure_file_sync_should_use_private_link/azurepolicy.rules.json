@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.StorageSync/storageSyncServices"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.StorageSync/storageSyncServices/privateEndpointConnections",
+                                 "existenceCondition":  "@{allOf=System.Object[]}"
+                             }
+             }
+}

@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Media/mediaservices}",
+                             "@{field=Microsoft.Media/mediaservices/encryption.type; exists=false}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

@@ -1,0 +1,12 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.EventGrid/topics}",
+                             "@{field=kind; notEquals=AzureArc}",
+                             "@{count=; less=1}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

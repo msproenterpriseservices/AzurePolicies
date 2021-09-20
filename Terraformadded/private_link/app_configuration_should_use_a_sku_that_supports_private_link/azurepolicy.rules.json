@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.AppConfiguration/configurationStores}",
+                             "@{field=Microsoft.AppConfiguration/configurationStores/sku.name; equals=Free}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

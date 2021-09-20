@@ -1,0 +1,13 @@
+﻿{
+    "if":  {
+               "field":  "type",
+               "equals":  "Microsoft.Attestation/attestationProviders"
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.Attestation/attestationProviders/privateEndpointConnections",
+                                 "existenceCondition":  "@{allOf=System.Object[]}"
+                             }
+             }
+}

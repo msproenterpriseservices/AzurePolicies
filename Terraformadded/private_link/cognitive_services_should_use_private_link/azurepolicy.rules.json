@@ -1,0 +1,12 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.CognitiveServices/accounts}",
+                             "@{count=; less=1}",
+                             "@{count=; greater=0}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

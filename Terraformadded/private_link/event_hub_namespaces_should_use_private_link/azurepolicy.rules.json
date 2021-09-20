@@ -1,0 +1,14 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.EventHub/namespaces}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]",
+                 "details":  {
+                                 "type":  "Microsoft.EventHub/namespaces/privateEndpointConnections",
+                                 "existenceCondition":  "@{field=Microsoft.EventHub/namespaces/privateEndpointConnections/privateLinkServiceConnectionState.status; equals=Approved}"
+                             }
+             }
+}

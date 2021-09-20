@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Automation/automationAccounts}",
+                             "@{field=Microsoft.Automation/automationAccounts/publicNetworkAccess; notEquals=false}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

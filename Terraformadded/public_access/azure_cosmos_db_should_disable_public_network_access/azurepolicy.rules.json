@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.DocumentDB/databaseAccounts}",
+                             "@{field=Microsoft.DocumentDB/databaseAccounts/publicNetworkAccess; notEquals=Disabled}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

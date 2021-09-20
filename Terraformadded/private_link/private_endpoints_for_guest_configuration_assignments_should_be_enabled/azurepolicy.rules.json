@@ -1,0 +1,12 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.GuestConfiguration/guestConfigurationAssignments}",
+                             "@{field=id; contains=Microsoft.Compute/virtualMachines}",
+                             "@{not=}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

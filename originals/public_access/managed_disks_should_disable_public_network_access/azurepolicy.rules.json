@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Compute/disks}",
+                             "@{field=Microsoft.Compute/disks/networkAccessPolicy; notIn=System.Object[]}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "[parameters(\u0027effect\u0027)]"
+             }
+}

@@ -1,0 +1,15 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                   {
+                             "field":"[concat('tags[', parameters('tagName'), ']']",
+                             "notEquals":"[resourceGroup().tags[parameters('tagName')]]}",
+                             "value" : "[resourceGroup().tags[parameters('tagName')]]", 
+                             "notEquals":"" 
+                       } ]
+           },
+    "then":  {
+                "effect": "[parameters('effect')]"
+                
+             }
+}

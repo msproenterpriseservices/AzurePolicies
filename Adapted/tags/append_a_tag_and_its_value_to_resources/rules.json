@@ -1,0 +1,14 @@
+﻿{
+    "if":  {
+               "field":  "[concat('tags[', parameters('tagName'), ']')]",
+               "exists":  "false"
+           },
+    "then":  {
+                 "effect": "[parameters('effect')]",
+                 "details":  [{
+                    "field": "[concat('tags[', parameters('tagName'), ']')]",
+                    "value": "[parameters('tagValue')]"
+                 }]
+                 
+             }
+}

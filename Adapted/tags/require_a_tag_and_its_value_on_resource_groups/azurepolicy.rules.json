@@ -1,0 +1,11 @@
+﻿{
+    "if":  {
+               "allOf":  [
+                             "@{field=type; equals=Microsoft.Resources/subscriptions/resourceGroups}",
+                             "@{field=[concat(\u0027tags[\u0027, parameters(\u0027tagName\u0027), \u0027]\u0027)]; notEquals=[parameters(\u0027tagValue\u0027)]}"
+                         ]
+           },
+    "then":  {
+                 "effect":  "deny"
+             }
+}

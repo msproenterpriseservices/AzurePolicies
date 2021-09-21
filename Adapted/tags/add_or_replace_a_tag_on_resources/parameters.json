@@ -1,0 +1,31 @@
+﻿{
+    "tagName":  {
+                    "type":  "String",
+                    "metadata":  {
+                                     "displayName":  "Tag Name",
+                                     "description":  "Name of the tag, such as 'environment'"
+                                 }
+                },
+    "tagValue":  {
+                     "type":  "String",
+                     "metadata":  {
+                                      "displayName":  "Tag Value",
+                                      "description":  "Value of the tag, such as 'production'"
+                                  }
+                 },
+        "effect": {
+        "type": "String",
+        "defaultValue": "Audit",
+        "allowedValues": [
+            "Audit",
+            "Modify",
+            "Deny",
+            "Disabled"
+        ],
+        "metadata": {
+            "displayName": "Effect",
+            "description": "The effect determines what happens when the policy rule is evaluated to match"
+        }
+    }
+
+}

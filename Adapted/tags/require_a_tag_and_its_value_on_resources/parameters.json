@@ -13,9 +13,8 @@
                          "displayName":  "Tag Value",
                          "description":  "Value of the tag, such as 'production'"
                      }
-    }
-        },
-
+    },
+        
     
     "effect": {
         "type": "String",

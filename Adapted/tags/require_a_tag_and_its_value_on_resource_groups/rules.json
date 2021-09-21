@@ -7,7 +7,7 @@
             },
             {
                 "field": "[concat('tags[', parameters('tagName'), ']')]",
-                "exists": "false"
+                "notEquals": "[parameters('tagValue')]"
             }
         ]
     },

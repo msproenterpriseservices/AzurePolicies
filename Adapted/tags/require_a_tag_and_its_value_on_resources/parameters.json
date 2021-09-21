@@ -1,4 +1,7 @@
 {
+
+"parameters" : {
+
     "tagName": {
         "type": "String",
         "metadata": {
@@ -13,7 +16,7 @@
                 "displayName": "Tag Value",
                 "description": "Value of the tag, such as 'production'"
             }
-        },
+        }},
 
     
     "effect": {

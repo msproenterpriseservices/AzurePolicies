@@ -1,4 +1,4 @@
-﻿{
+{
     "if":  {
                "field":  "[concat('tags[', parameters('tagName'), ']')]",
                "exists":  "false"
@@ -7,13 +7,7 @@
                  "effect":  "[parameters('effect')]",
                  "details":  {
                                  "roleDefinitionIds":  "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-                                 "operations": [
-      {
-       "operation": "add",
-       "field": "[concat('tags[', parameters('tagName'), ']')]",
-       "value": "[parameters('tagValue')]"
-      }
-     ]
+                                 "operations":  ""
                              }
              }
 }

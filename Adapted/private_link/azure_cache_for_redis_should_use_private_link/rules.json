@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Cache/redis"
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

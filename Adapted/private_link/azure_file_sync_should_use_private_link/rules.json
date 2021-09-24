@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.StorageSync/storageSyncServices"
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

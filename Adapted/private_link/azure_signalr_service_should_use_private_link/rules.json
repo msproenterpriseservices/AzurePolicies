@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.SignalRService/SignalR"
+         },
+         {
+          "count": {
+           "field": "Microsoft.SignalRService/SignalR/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.SignalRService/SignalR/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

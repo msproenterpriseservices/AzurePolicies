@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.DBforPostgreSQL/servers"
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

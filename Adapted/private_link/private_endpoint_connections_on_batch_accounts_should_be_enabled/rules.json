@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Batch/batchAccounts"
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

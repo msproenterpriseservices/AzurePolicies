@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.HealthcareApis/services"
+         },
+         {
+          "count": {
+           "field": "Microsoft.HealthcareApis/services/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.HealthcareApis/services/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

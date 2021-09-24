@@ -15,3 +15,18 @@ Private endpoints lets you connect your virtual network to Azure services withou
 ## Built-In Reference
 
 Modified from: [RedisCache_PrivateEndpoint_AuditIfNotExists](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_PrivateEndpoint_AuditIfNotExists.json)
+
+Terraform azpolicy_definition module usage
+-----
+
+```hcl
+module "azure_cache_for_redis_should_use_private_link" {
+  source = "..//modules/azpolicy_definition"
+  policy_name           = "azure_cache_for_redis_should_use_private_link"
+  display_name          = "Azure Cache for Redis should use private link"
+  policy_description    = "Private endpoints lets you connect your virtual network to Azure services without a public IP address at the source or destination. By mapping private endpoints to your Azure Cache for Redis instances, data leakage risks are reduced."
+  policy_category       = "PrivateLink"
+  policy_mode           = "Indexed"
+  management_group_name = azurerm_management_group.dev.name
+}
+```

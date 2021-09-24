@@ -1,0 +1,31 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.GuestConfiguration/guestConfigurationAssignments"
+         },
+         {
+          "field": "id",
+          "contains": "Microsoft.Compute/virtualMachines"
+         },
+         {
+          "not": {
+           "anyof": [
+            {
+             "field": "[concat('tags[', 'EnablePrivateNeworkGC', ']')]",
+             "equals": "TRUE"
+            },
+            {
+             "field": "[concat('tags[', 'EnablePrivateNetworkGC', ']')]",
+             "equals": "TRUE"
+            }
+           ]
+          }
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

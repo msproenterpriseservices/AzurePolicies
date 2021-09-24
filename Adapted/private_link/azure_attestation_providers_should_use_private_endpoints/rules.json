@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Attestation/attestationProviders"
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

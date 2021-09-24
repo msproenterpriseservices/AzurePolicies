@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Search/searchServices"
+         },
+         {
+          "count": {
+           "field": "Microsoft.Search/searchServices/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.Search/searchServices/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

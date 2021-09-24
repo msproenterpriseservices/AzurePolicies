@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Devices/IotHubs"
+         },
+         {
+          "count": {
+           "field": "Microsoft.Devices/IotHubs/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.Devices/IotHubs/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

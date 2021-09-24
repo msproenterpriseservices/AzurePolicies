@@ -1,0 +1,24 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Sql/servers"
+         },
+         {
+          "count": {
+           "field": "Microsoft.Sql/servers/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.Sql/servers/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+
+}

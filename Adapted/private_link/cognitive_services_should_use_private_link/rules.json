@@ -1,0 +1,33 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.CognitiveServices/accounts"
+         },
+         {
+          "count": {
+           "field": "Microsoft.CognitiveServices/accounts/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.CognitiveServices/accounts/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         },
+         {
+          "count": {
+           "field": "Microsoft.CognitiveServices/accounts/capabilities[*]",
+           "where": {
+            "field": "Microsoft.CognitiveServices/accounts/capabilities[*].name",
+            "equals": "VirtualNetworks"
+           }
+          },
+          "greater": 0
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Web/serverFarms"
+         },
+         {
+          "field": "Microsoft.Web/serverFarms/sku.family",
+          "notIn": [
+           "Pv2",
+           "Pv3",
+           "EP",
+           "P",
+           "I",
+           "Iv2"
+          ]
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

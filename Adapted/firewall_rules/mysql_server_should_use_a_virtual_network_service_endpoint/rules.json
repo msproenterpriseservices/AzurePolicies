@@ -1,0 +1,10 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.DBforMySQL/servers"
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+
+}

@@ -1,0 +1,35 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.RecoveryServices/vaults"
+         },
+         {
+          "count": {
+           "field": "Microsoft.RecoveryServices/vaults/privateEndpointConnections[*]",
+           "where": {
+            "allOf": [
+             {
+              "field": "Microsoft.RecoveryServices/vaults/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+              "equals": "Approved"
+             },
+             {
+              "field": "Microsoft.RecoveryServices/vaults/privateEndpointConnections[*].provisioningState",
+              "equals": "Succeeded"
+             },
+             {
+              "field": "Microsoft.RecoveryServices/vaults/privateEndpointConnections[*].id",
+              "contains": "SiteRecovery"
+             }
+            ]
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

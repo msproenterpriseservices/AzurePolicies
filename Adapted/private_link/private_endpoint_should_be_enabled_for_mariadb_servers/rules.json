@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.DBforMariaDB/servers"
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

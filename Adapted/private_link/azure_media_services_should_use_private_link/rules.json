@@ -1,0 +1,9 @@
+{
+    "if": {
+        "field": "type",
+        "equals": "Microsoft.Media/mediaservices"
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

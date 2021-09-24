@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.EventGrid/domains"
+         },
+         {
+          "count": {
+           "field": "Microsoft.EventGrid/domains/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.EventGrid/domains/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

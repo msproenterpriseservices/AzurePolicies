@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.SignalRService/SignalR"
+         },
+         {
+          "field": "Microsoft.SignalRService/SignalR/sku.tier",
+          "equals": "Free"
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

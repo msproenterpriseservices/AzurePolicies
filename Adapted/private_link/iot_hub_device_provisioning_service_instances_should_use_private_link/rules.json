@@ -3,13 +3,13 @@
         "allOf": [
          {
           "field": "type",
-          "equals": "Microsoft.Devices/provisioningServices"
+          "equals": "Microsoft.KeyVault/vaults"
          },
          {
           "count": {
-           "field": "Microsoft.Devices/provisioningServices/privateEndpointConnections[*]",
+           "field": "Microsoft.KeyVault/vaults/privateEndpointConnections[*]",
            "where": {
-            "field": "Microsoft.Devices/provisioningServices/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "field": "Microsoft.KeyVault/vaults/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
             "equals": "Approved"
            }
           },

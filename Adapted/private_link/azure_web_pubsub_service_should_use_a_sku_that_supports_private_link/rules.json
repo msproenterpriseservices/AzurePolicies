@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.SignalRService/webPubSub"
+         },
+         {
+          "field": "Microsoft.SignalRService/webPubSub/sku.tier",
+          "equals": "Free"
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

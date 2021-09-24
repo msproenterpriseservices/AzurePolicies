@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Devices/provisioningServices"
+         },
+         {
+          "count": {
+           "field": "Microsoft.Devices/provisioningServices/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.Devices/provisioningServices/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

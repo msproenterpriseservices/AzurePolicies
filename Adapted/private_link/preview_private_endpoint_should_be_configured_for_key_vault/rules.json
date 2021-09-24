@@ -1,0 +1,28 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.KeyVault/vaults"
+         },
+         {
+          "anyOf": [
+           {
+            "field": "Microsoft.KeyVault/vaults/privateEndpointConnections",
+            "exists": "false"
+           },
+           {
+            "count": {
+             "field": "Microsoft.KeyVault/vaults/privateEndpointConnections[*]"
+            },
+            "equals": 0
+           }
+          ]
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+
+}

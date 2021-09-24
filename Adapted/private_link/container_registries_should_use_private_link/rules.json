@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.ContainerRegistry/registries"
+         },
+         {
+          "count": {
+           "field": "Microsoft.ContainerRegistry/registries/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.ContainerRegistry/registries/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

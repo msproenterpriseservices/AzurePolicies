@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Search/searchServices"
+         },
+         {
+          "field": "Microsoft.Search/searchServices/sku.name",
+          "equals": "free"
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

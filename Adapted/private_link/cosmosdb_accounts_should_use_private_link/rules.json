@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.DocumentDB/databaseAccounts"
+         },
+         {
+          "count": {
+           "field": "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.EventGrid/topics"
+         },
+         {
+          "field": "kind",
+          "notEquals": "AzureArc"
+         },
+         {
+          "count": {
+           "field": "Microsoft.EventGrid/topics/privateEndpointConnections[*]",
+           "where": {
+            "field": "Microsoft.EventGrid/topics/privateEndpointConnections[*].privateLinkServiceConnectionState.status",
+            "equals": "Approved"
+           }
+          },
+          "less": 1
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

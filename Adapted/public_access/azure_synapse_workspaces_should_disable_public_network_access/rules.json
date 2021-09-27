@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Synapse/workspaces"
+         },
+         {
+          "field": "Microsoft.Synapse/workspaces/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

@@ -1,0 +1,25 @@
+{
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Insights/components"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.Insights/components/publicNetworkAccessForIngestion",
+        "notEquals": "disabled"
+       },
+       {
+        "field": "Microsoft.Insights/components/publicNetworkAccessForQuery",
+        "notEquals": "disabled"
+       }
+      ]
+     }
+    ]
+   },
+    "then": {
+        "effect": "[parameters('effect')]"
+    }
+}

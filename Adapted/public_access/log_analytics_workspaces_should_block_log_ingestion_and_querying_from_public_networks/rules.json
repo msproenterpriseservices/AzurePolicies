@@ -1,0 +1,25 @@
+{
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.OperationalInsights/workspaces"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "Microsoft.OperationalInsights/workspaces/publicNetworkAccessForIngestion",
+        "notEquals": "disabled"
+       },
+       {
+        "field": "Microsoft.OperationalInsights/workspaces/publicNetworkAccessForQuery",
+        "notEquals": "disabled"
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+}

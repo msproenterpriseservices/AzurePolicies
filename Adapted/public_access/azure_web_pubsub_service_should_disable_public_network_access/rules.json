@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.SignalRService/webPubSub"
+         },
+         {
+          "field": "Microsoft.SignalRService/webPubSub/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

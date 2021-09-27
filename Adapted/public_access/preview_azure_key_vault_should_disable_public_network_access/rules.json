@@ -1,0 +1,23 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.KeyVault/vaults"
+         },
+         {
+          "not": {
+           "field": "Microsoft.KeyVault/vaults/createMode",
+           "equals": "recover"
+          }
+         },
+         {
+          "field": "Microsoft.KeyVault/vaults/networkAcls.defaultAction",
+          "notEquals": "Deny"
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

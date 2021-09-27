@@ -1,0 +1,27 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.CognitiveServices/accounts"
+         },
+         {
+          "field": "Microsoft.CognitiveServices/accounts/publicNetworkAccess",
+          "notEquals": "Disabled"
+         },
+         {
+          "count": {
+           "field": "Microsoft.CognitiveServices/accounts/capabilities[*]",
+           "where": {
+            "field": "Microsoft.CognitiveServices/accounts/capabilities[*].name",
+            "equals": "VirtualNetworks"
+           }
+          },
+          "greater": 0
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

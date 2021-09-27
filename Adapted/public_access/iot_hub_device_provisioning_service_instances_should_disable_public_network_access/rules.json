@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Devices/provisioningServices"
+         },
+         {
+          "field": "Microsoft.Devices/provisioningServices/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

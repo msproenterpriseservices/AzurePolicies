@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Devices/IotHubs"
+         },
+         {
+          "field": "Microsoft.Devices/IotHubs/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+       "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

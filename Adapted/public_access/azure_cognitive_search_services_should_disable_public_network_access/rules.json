@@ -1,0 +1,17 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.Search/searchServices"
+         },
+         {
+          "field": "Microsoft.Search/searchServices/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

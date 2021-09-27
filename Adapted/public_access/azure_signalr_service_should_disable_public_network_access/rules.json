@@ -1,0 +1,31 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.SignalRService/SignalR"
+         },
+         {
+          "anyOf": [
+           {
+            "field": "Microsoft.SignalRService/SignalR/networkACLs.defaultAction",
+            "equals": "Allow"
+           },
+           {
+            "field": "Microsoft.SignalRService/SignalR/networkACLs.publicNetwork.allow",
+            "exists": false
+           },
+           {
+            "count": {
+             "field": "Microsoft.SignalRService/SignalR/networkACLs.publicNetwork.allow[*]"
+            },
+            "greater": 0
+           }
+          ]
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}

@@ -1,0 +1,21 @@
+{
+    "if": {
+        "allOf": [
+         {
+          "field": "type",
+          "equals": "Microsoft.EventGrid/topics"
+         },
+         {
+          "field": "kind",
+          "notEquals": "AzureArc"
+         },
+         {
+          "field": "Microsoft.EventGrid/topics/publicNetworkAccess",
+          "notEquals": "Disabled"
+         }
+        ]
+       },
+    "then": {
+        "effect": "[parameters('effect')]"
+       }
+}
